@@ -28,7 +28,9 @@ namespace ReferenceTypeAndFields
                         Write("Last name: ");
                         newPatient.lastName = ReadLine();
                         Write("Social security number: ");
-                        newPatient.socialSecurityNumber = ReadLine();
+                        string ssnInput = ReadLine();
+                        newPatient.socialSecurityNumber = new SocialSecurityNumber (ssnInput);
+
                         // Add patient data to array of patient data
                         patients[patientCounter] = newPatient;
                         ++patientCounter;
@@ -54,5 +56,16 @@ namespace ReferenceTypeAndFields
     }
     struct SocialSecurityNumber
     {
+        private readonly string ssn;
+
+        public SocialSecurityNumber(string ssn)
+        {
+            this.ssn = ssn;
+        }
+
+        public override string ToString()
+        {
+            return ssn;
+        }
     }
 }
